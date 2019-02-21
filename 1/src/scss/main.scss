@@ -2,3 +2,107 @@ body {
   padding: 0;
   margin: 0;
 }
+$grid__bp-sm: 501;
+$grid__bp-md: 801;
+$grid__cols: 12;
+$map-grid-props: (
+  '': 0,
+  '-sm': $grid__bp-sm,
+  '-md': $grid__bp-md,
+);
+
+@mixin create-mq($breakpoint) {
+  @if($breakpoint == 0) {
+    @content;
+  } @else {
+    @media screen and (min-width: $breakpoint * 1px) {
+      @content;
+    }
+  }
+}
+@mixin create-col-classes($modifier, $grid-cols, $breakpoint) {
+  @include create-mq($breakpoint) {
+    @for $i from 1 through $grid-cols {
+      &__col#{$modifier}-#{$i} {
+        flex-basis: (100 / ($grid-cols / $i)) * 1%;
+      }
+    }
+  }
+}
+
+.container {
+  max-width: $grid__bp-md * 1px;
+  margin: auto;
+  margin-bottom: 10px;
+  padding: 0 10px 10px 10px;
+
+  &--fluid {
+    margin: 0;
+    max-width: 100%;
+    padding-bottom: 10px;
+  }
+
+  &__row {
+    display: flex;
+    flex-direction: row-reverse;
+    flex-wrap: wrap;
+    width: 100%;
+  }
+  @each $modifier , $breakpoint in $map-grid-props {
+    @include create-col-classes($modifier, $grid__cols, $breakpoint);
+  }
+}
+
+.container {
+  box-sizing: border-box;
+  @at-root {
+    [class*='container__col-'] {
+      min-height: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+    }
+  }
+}
+
+.header {
+  min-height: 60px;
+  background-color: #424413;
+}
+
+.grass {
+  height: 200px;
+  background-image: url("../../layout/grass.jpg");
+  background-size: cover;
+}
+
+.blue {
+  background: #18A1AB;
+  color: white;
+  width: 100%;
+  padding: 20px;
+  @media screen and (min-width: $grid__bp-sm * 1px) {
+    margin: 10px;
+  }
+}
+
+
+.green {
+  background: #08A033;
+  min-height: 100px;
+
+  &--second {
+    min-height: 200px;
+    background: #08A033;
+  }
+}
+
+.red {
+  background-color: #A51B35;
+  min-height: 150px;
+}
+
+.yellow {
+  background-color: #AFB608;
+  height: 200px;
+}
