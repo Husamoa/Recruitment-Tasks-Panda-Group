@@ -47,6 +47,7 @@ $map-grid-props: (
     flex-direction: row-reverse;
     flex-wrap: wrap;
     width: 100%;
+    padding: 0;
   }
   @each $modifier , $breakpoint in $map-grid-props {
     @include create-col-classes($modifier, $grid__cols, $breakpoint);
@@ -57,10 +58,15 @@ $map-grid-props: (
   box-sizing: border-box;
   @at-root {
     [class*='container__col-'] {
+      box-sizing: border-box;
       min-height: 30px;
+      padding: 0 10px;
       display: flex;
       align-items: center;
       justify-content: space-around;
+      &.no-padding {
+        padding: 0;
+      }
     }
   }
 }
@@ -79,11 +85,7 @@ $map-grid-props: (
 .blue {
   background: #18A1AB;
   color: white;
-  width: 100%;
   padding: 20px;
-  @media screen and (min-width: $grid__bp-sm * 1px) {
-    margin: 10px;
-  }
 }
 
 
@@ -104,5 +106,5 @@ $map-grid-props: (
 
 .yellow {
   background-color: #AFB608;
-  height: 200px;
+  min-height: 200px;
 }
