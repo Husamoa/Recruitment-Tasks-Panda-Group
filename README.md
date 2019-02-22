@@ -2,8 +2,9 @@
 Recruitment Tasks Panda Group
 
 ### Links:
-<a href="https://husamoa.github.io/Recruitment-Tasks-Panda-Group/1/" target="_blank">Link to task 1</a>
+[Link to task 1](https://husamoa.github.io/Recruitment-Tasks-Panda-Group/1/)
 
-<a href="https://husamoa.github.io/Recruitment-Tasks-Panda-Group/2/" target="_blank">Link to task 2</a>
+[Link to task 2](https://husamoa.github.io/Recruitment-Tasks-Panda-Group/2/)
 
-<a href="https://husamoa.github.io/Recruitment-Tasks-Panda-Group/3/" target="_blank">Link to task 3</a>
+[Link to task 3](https://husamoa.github.io/Recruitment-Tasks-Panda-Group/3/)
+
