@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<button class="catChangingButton">Just one more cat!</button>
+<div class="imageContainer" style="height: 400px; width: 400px; background-repeat: no-repeat; background-size: cover">
+</div>
+<script src="https://code.jquery.com/jquery-2.2.0.min.js" ></script>
+<script>
+    var $j = jQuery.noConflict();
+
+    getCats = function(){
+        jQuery.getJSON(
+            "https://api.giphy.com/v1/gifs/random?api_key=60EqS7Mp76p0mriYXw5EGkUq9FkJobdb&tag=cat&rating=G",
+            function(data){
+                var imageUrl = data.data.image_original_url
+                $j( ".imageContainer" ).css( "background-image", "url(" +imageUrl+ ")");
+    })
+   };
+
+   changingCat = function(){
+        var button = $j(".catChangingButton");
+        button.on('click', getCats);
+    };
+
+    changingCat();
+  
+</script>
+
+</body>
+</html>
